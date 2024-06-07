@@ -1,20 +1,29 @@
 /* -*- coding: binary; -*- */
-/* 
- * Copyright (C)2019 Roger Clark. VK3KYY / G4KYF
+/*
+ * Copyright (C) 2019-2023 Roger Clark, VK3KYY / G4KYF
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions
+ * are met:
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer
+ *    in the documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * 4. Use of this source code or binary releases for commercial purposes is strictly forbidden. This includes, without limitation,
+ *    incorporation in a commercial product or incorporation into a product or project which allows commercial use.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+ * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
  */
 /*
  * Translators: JE4SMQ
@@ -32,8 +41,12 @@
  * or emacs on Linux with windows-1252-unix encoding
  *
  ********************************************************************/
+#if defined(PLATFORM_GD77) || defined(PLATFORM_GD77S) || defined(PLATFORM_DM1801) || defined(PLATFORM_DM1801A) || defined(PLATFORM_RD5R)
+__attribute__((section(".upper_text")))
+#endif
 const stringsTable_t japaneseLanguage =
 {
+.magicNumber                            = { LANGUAGE_TAG_MAGIC_NUMBER, LANGUAGE_TAG_VERSION },
 .LANGUAGE_NAME 				= "ÆÎÝºÞ", // MaxLen: 16
 .menu					= "ÒÆ­-", // MaxLen: 16
 .credits				= "¶²ÊÂ¼¬", // MaxLen: 16
@@ -57,8 +70,8 @@ const stringsTable_t japaneseLanguage =
 .keypad					= "·-Êß¯ÄÞ", // MaxLen: 12 (with .ptt)
 .ptt					= "PTT", // MaxLen: 12 (with .keypad)
 .locked					= "Û¯¸", // MaxLen: 15
-.press_blue_plus_star			= "F(±µ) + *", // MaxLen: 19
-.to_unlock				= "Û¯¸¶²¼Þ®", // MaxLen: 19
+.press_sk2_plus_star			= "SK2 + *", // MaxLen: 16
+.to_unlock				= "Û¯¸¶²¼Þ®", // MaxLen: 16
 .unlocked				= "Û¯¸¶²¼Þ®½ÞÐ", // MaxLen: 15
 .power_off				= "ÃÞÝ¹ÞÝ Off...", // MaxLen: 16
 .error					= "´×-", // MaxLen: 8
@@ -97,16 +110,16 @@ const stringsTable_t japaneseLanguage =
 .bandwidth				= "ÊÞÝÄÞÊÊÞ", // MaxLen: 16 (with ':' + .n_a, "25kHz" or "12.5kHz")
 .stepFreq				= "½Ã¯Ìß", // MaxLen: 7 (with ':' + xx.xxkHz fitted)
 .tot					= "TOT", // MaxLen: 16 (with ':' + .off or 15..3825)
-.off					= "µÌ", // MaxLen: 16 (with ':' + .timeout_beep, .calibration or .band_limits)
-.zone_skip				= "¿Þ-Ý ½·¯Ìß", // MaxLen: 16 (with ':' + .yes or .no) 
+.off					= "µÌ", // MaxLen: 16 (with ':' + .timeout_beep, .band_limits)
+.zone_skip				= "¿Þ-Ý ½·¯Ìß", // MaxLen: 16 (with ':' + .yes or .no)
 .all_skip				= "µ-Ù ½·¯Ìß", // MaxLen: 16 (with ':' + .yes or .no)
 .yes					= "Ê²", // MaxLen: 16 (with ':' + .zone_skip, .all_skip or .factory_reset)
 .no					= "²²´", // MaxLen: 16 (with ':' + .zone_skip, .all_skip or .factory_reset)
-.rx_group				= "RX Grp", // MaxLen: 16 (with ':' and codeplug group name)
-.on					= "µÝ", // MaxLen: 16 (with ':' + .calibration or .band_limits)
-.timeout_beep				= "À²Ñ±³ÄËÞ-Ìß", // MaxLen: 16 (with ':' + .off or 5..20)
-.UNUSED_1				= "",
-.calibration				= "·¬ØÌÞÚ-¼®Ý", // MaxLen: 16 (with ':' + .on or .off)
+.tg_list				= "TG Lst", // MaxLen: 16 (with ':' and codeplug group name)
+.on					= "µÝ", // MaxLen: 16 (with ':' + .band_limits)
+.timeout_beep				= "À²Ñ±³ÄËÞ-Ìß", // MaxLen: 16 (with ':' + .n_a or 5..20 + 's')
+.list_full				= "List full",
+.dmr_cc_scan				= "CC½·¬Ý", // MaxLen: 12 (with ':' + settings: .on or .off)
 .band_limits				= "ÊÞÝÄÞ¾²¹ÞÝ", // MaxLen: 16 (with ':' + .on or .off)
 .beep_volume				= "ËÞ-ÌßµÝØ®³", // MaxLen: 16 (with ':' + -24..6 + 'dB')
 .dmr_mic_gain				= "DMR Ï²¸¹Þ²Ý", // MaxLen: 16 (with ':' + -33..12 + 'dB')
@@ -117,8 +130,8 @@ const stringsTable_t japaneseLanguage =
 .brightness				= "±¶Ù»", // MaxLen: 16 (with ':' + 0..100 + '%')
 .brightness_off				= "ÃÞ¨Ï-", // MaxLen: 16 (with ':' + 0..100 + '%')
 .contrast				= "ºÝÄ×½Ä", // MaxLen: 16 (with ':' + 12..30)
-.colour_invert				= "ÊÝÃÝ", // MaxLen: 16
-.colour_normal				= "Â³¼Þ®³", // MaxLen: 16
+.screen_invert				= "ÊÝÃÝ", // MaxLen: 16
+.screen_normal				= "Â³¼Þ®³", // MaxLen: 16
 .backlight_timeout			= "À²Ñ±³Ä", // MaxLen: 16 (with ':' + .no to 30s)
 .scan_delay				= "½·¬ÝÃÞ¨Ú²", // MaxLen: 16 (with ':' + 1..30 + 's')
 .yes___in_uppercase			= "Ê²", // MaxLen: 8 (choice above green/red buttons)
@@ -127,11 +140,11 @@ const stringsTable_t japaneseLanguage =
 .scan_mode				= "½·¬ÝÓ-ÄÞ", // MaxLen: 16 (with ':' + .hold, .pause or .stop)
 .hold					= "Î-ÙÄÞ", // MaxLen: 16 (with ':' + .scan_mode)
 .pause					= "Îß-½Þ", // MaxLen: 16 (with ':' + .scan_mode)
-.empty_list				= "Ø½ÄÅ¼", // MaxLen: 16
+.list_empty				= "Ø½ÄÅ¼", // MaxLen: 16
 .delete_contact_qm			= "ºÝÀ¸ÄÉ»¸¼Þ®?", // MaxLen: 16
 .contact_deleted			= "ºÝÀ¸Ä»¸¼Þ®½Ð", // MaxLen: 16
 .contact_used				= "ºÝÀ¸ÄÊ½ÃÞÆ±Ù", // MaxLen: 16
-.in_rx_group				= "RX¸ÞÙ-ÌßÅ²", // MaxLen: 16
+.in_tg_list				= "in TG list", // MaxLen: 16
 .select_tx				= "¿³¼Ý¾ÝÀ¸", // MaxLen: 16
 .edit_contact				= "ºÝÀ¸Ä ¼­³¾²", // MaxLen: 16
 .delete_contact				= "ºÝÀ¸Ä »¸¼Þ®", // MaxLen: 16
@@ -139,7 +152,7 @@ const stringsTable_t japaneseLanguage =
 .all_call				= "µ-Ùº-Ù", // MaxLen: 16
 .tone_scan				= "Ä-Ý½·¬Ý", // MaxLen: 16
 .low_battery				= "ÃÞÝÁ-·ÞÚ !!!", // MaxLen: 16
-.Auto					= "µ-Ä", // MaxLen 16 (with .mode + ':') 
+.Auto					= "µ-Ä", // MaxLen 16 (with .mode + ':')
 .manual					= "ÏÆ­±Ù",  // MaxLen 16 (with .mode + ':')
 .ptt_toggle				= "PTT Ä¸ÞÙ", // MaxLen 16 (with ':' + .on or .off)
 .private_call_handling			= "PC³¹Â¹", // MaxLen 16 (with ':' + .on or .off)
@@ -153,25 +166,25 @@ const stringsTable_t japaneseLanguage =
 .both					= "Ø®³Î³", // MaxLen 16 (with ':' + .dmr_beep)
 .vox_threshold                          = "VOX ½Ú¯¼®ÙÄÞ", // MaxLen 16 (with ':' + .off or 1..30)
 .vox_tail                               = "VOX Ã-Ù", // MaxLen 16 (with ':' + .n_a or '0.0s')
-.audio_prompt				= "µÝ¾²±ÝÅ²",// Maxlen 16 (with ':' + .silent, .normal, .beep or .voice_prompt_level_1)
+.audio_prompt				= "µÝ¾²±ÝÅ²",// Maxlen 16 (with ':' + .silent, .beep or .voice_prompt_level_1)
 .silent                                 = "Å¼", // Maxlen 16 (with : + audio_prompt)
-.normal                                 = "Â³¼Þ®³", // Maxlen 16 (with : + audio_prompt)
+.rx_beep				= "RX beep", // MaxLen 16 (with ':' + .carrier/.talker/.both/.none)
 .beep					= "ËÞ-Ìß", // Maxlen 16 (with : + audio_prompt)
-.voice_prompt_level_1			= "µÝ¾² L1", // Maxlen 16 (with : + audio_prompt)
-.transmitTalkerAlias			= "TA¿³¼Ý", // Maxlen 16 (with : + .on or .off)
+.voice_prompt_level_1			= "µÝ¾²", // Maxlen 16 (with : + audio_prompt, satellite "mode")
+.transmitTalkerAliasTS1			= "TA¿³¼Ý TS1", // Maxlen 16 (with : + .on or .off)
 .squelch_VHF				= "VHF ½¹ÙÁ",// Maxlen 16 (with : + XX%)
 .squelch_220				= "220 ½¹ÙÁ",// Maxlen 16 (with : + XX%)
 .squelch_UHF				= "UHF ½¹ÙÁ", // Maxlen 16 (with : + XX%)
-.display_background_colour 		= "ÊÞ¯¸¶×-", // Maxlen 16 (with : + .colour_normal or .colour_invert)
+.display_screen_invert 		= "ÊÞ¯¸¶×-", // Maxlen 16 (with : + .screen_normal or .screen_invert)
 .openGD77 				= "OpenGD77",// Do not translate
-.openGD77S 				= "OpenGD77S",// Do not translate
-.openDM1801 				= "OpenDM1801",// Do not translate
-.openRD5R 				= "OpenRD5R",// Do not translate
+.talkaround 				= "Talkaround", // Maxlen 16 (with ':' + .on , .off or .n_a)
+.APRS 					= "APRS", // Maxlen 16 (with : + .transmitTalkerAliasTS1 or transmitTalkerAliasTS2)
+.no_keys 				= "No Keys", // Maxlen 16 (with : + audio_prompt)
 .gitCommit				= "Git commit",
 .voice_prompt_level_2			= "µÝ¾² L2", // Maxlen 16 (with : + audio_prompt)
 .voice_prompt_level_3			= "µÝ¾² L3", // Maxlen 16 (with : + audio_prompt)
-.dmr_filter				= "DMR Ì¨ÙÀ-",// MaxLen: 12 (with ':' + settings: "TG" or "Ct" or "RxG")
-.dmr_cc_filter				= "CC Ì¨ÙÀ-", // MaxLen: 12 (with ':' + settings: .on or .off)
+.dmr_filter				= "DMR Ì¨ÙÀ-",// MaxLen: 12 (with ':' + settings: "TG" or "Ct" or "TGL")
+.talker					= "Talker",
 .dmr_ts_filter				= "TS Ì¨ÙÀ-", // MaxLen: 12 (with ':' + settings: .on or .off)
 .dtmf_contact_list			= "DTMF ºÝÀ¸ÄØ½Ä", // Maxlen: 16
 .channel_power				= "Ch Pwr", //Displayed as "Ch Power:" + .from_master or "Ch Power:"+ power text e.g. "Power:500mW" . Max total length 16
@@ -185,15 +198,127 @@ const stringsTable_t japaneseLanguage =
 .celcius				= "°C",
 .seconds				= "ËÞ®³",
 .radio_info				= "Ñ¾Ý· ¼Þ®³Î³",
-.temperature_calibration		= "µÝÄÞCal",
+.temperature_calibration		= "µÝÄÞÁ®³¾²",
 .pin_code				= "±Ý¼®³ÊÞÝºÞ³",
 .please_confirm				= "¶¸ÆÝ¼Ã¸ÀÞ»²", // MaxLen: 15
 .vfo_freq_bind_mode			= "TRFÚÝÄÞ³",
 .overwrite_qm				= "¶·¶´OK?", //Maxlen: 14 chars
-.eco_level				= "Eco Level",
-.buttons				= "Buttons",
+.eco_level				= "´ºÚÍÞÙ",
+.buttons				= "ÎÞÀÝ",
 .leds					= "LEDs",
-.scan_dwell_time		= "Scan dwell"
+.scan_dwell_time			= "½·¬ÝÃ²¼¼Þ¶Ý",
+.battery_calibration			= "ÃÞÝ±ÂÁ®³¾²",
+.low					= "µ¿²",
+.high					= "ÊÔ²",
+.dmr_id					= "DMR ID",
+.scan_on_boot				= "·ÄÞ³¼Þ½·¬Ý",
+.dtmf_entry				= "DTMF ´ÝÄØ°",
+.name					= "ÅÏ´",
+.carrier				= "Carrier",
+.zone_empty 				= "Zone empty", // Maxlen: 12 chars.
+.time					= "¼Þ¶Ý",
+.uptime					= "Uptime",
+.hours					= "¼Þ¶Ý",
+.minutes				= "ÌÝ",
+.satellite				= "´²¾²",
+.alarm_time				= "±×°Ñ¼Þ¶Ý",
+.location				= "Û¹°¼®Ý",
+.date					= "Ë½Þ¹",
+.timeZone				= "À²Ñ¿Þ°Ý",
+.suspend				= "»½ÍßÝÄÞ",
+.pass					= "Êß½", // For satellite screen
+.elevation				= "El",
+.azimuth				= "Az",
+.inHHMMSS				= "in",
+.predicting				= "Ö¿³",
+.maximum				= "Max",
+.satellite_short		= "Sat",
+.local					= "Û°¶Ù",
+.UTC					= "UTC",
+.symbols				= "NSEW", // symbols: N,S,E,W
+.not_set				= "¾¯Ä¼Å²",
+.general_options		= "¾ÞÝÀ²µÌß¼®Ý",
+.radio_options			= "Ñ¾ÝµÌß¼®Ý",
+.auto_night				= "Auto night", // MaxLen: 16 (with .on or .off)
+.dmr_rx_agc				= "DMR Rx AGC",
+.speaker_click_suppress			= "Click Suppr.",
+.gps					= "GPS",
+.end_only				= "End only",
+.dmr_crc				= "DMR crc",
+.eco					= "Eco",
+.safe_power_on				= "Safe Pwr-On", // MaxLen: 16 (with ':' + .on or .off)
+.auto_power_off				= "Auto Pwr-Off", // MaxLen: 16 (with ':' + 30/60/90/120/180 or .no)
+.apo_with_rf				= "APO with RF", // MaxLen: 16 (with ':' + .yes or .no or .n_a)
+.brightness_night				= "Nite bright", // MaxLen: 16 (with : + 0..100 + %)
+.freq_set_VHF			= "Freq VHF",
+.gps_acquiring			= "Acquiring",
+.altitude				= "Alt",
+.calibration            = "Calibration",
+.freq_set_UHF                = "Freq UHF",
+.cal_frequency          = "Freq",
+.cal_pwr                = "Power level",
+.pwr_set                = "Power Adjust",
+.factory_reset          = "Factory Reset",
+.rx_tune				= "Rx Tuning",
+.transmitTalkerAliasTS2	= "TA Tx TS2", // Maxlen 16 (with : + .ta_text, 'APRS' , .both or .off)
+.ta_text				= "Text",
+.daytime_theme_day			= "Day theme", // MaxLen: 16
+.daytime_theme_night			= "Night theme", // MaxLen: 16
+.theme_chooser				= "Theme chooser", // Maxlen: 16
+.theme_options				= "Theme options",
+.theme_fg_default			= "Text Default", // MaxLen: 16 (+ colour rect)
+.theme_bg				= "Background", // MaxLen: 16 (+ colour rect)
+.theme_fg_decoration			= "Decoration", // MaxLen: 16 (+ colour rect)
+.theme_fg_text_input			= "Text input", // MaxLen: 16 (+ colour rect)
+.theme_fg_splashscreen			= "Foregr. boot", // MaxLen: 16 (+ colour rect)
+.theme_bg_splashscreen			= "Backgr. boot", // MaxLen: 16 (+ colour rect)
+.theme_fg_notification			= "Text notif.", // MaxLen: 16 (+ colour rect)
+.theme_fg_warning_notification		= "Warning notif.", // MaxLen: 16 (+ colour rect)
+.theme_fg_error_notification		= "Error notif", // MaxLen: 16 (+ colour rect)
+.theme_bg_notification                  = "Backgr. notif", // MaxLen: 16 (+ colour rect)
+.theme_fg_menu_name			= "Menu name", // MaxLen: 16 (+ colour rect)
+.theme_bg_menu_name			= "Menu name bkg", // MaxLen: 16 (+ colour rect)
+.theme_fg_menu_item			= "Menu item", // MaxLen: 16 (+ colour rect)
+.theme_fg_menu_item_selected		= "Menu highlight", // MaxLen: 16 (+ colour rect)
+.theme_fg_options_value			= "Option value", // MaxLen: 16 (+ colour rect)
+.theme_fg_header_text			= "Header text", // MaxLen: 16 (+ colour rect)
+.theme_bg_header_text			= "Header text bkg", // MaxLen: 16 (+ colour rect)
+.theme_fg_rssi_bar			= "RSSI bar", // MaxLen: 16 (+ colour rect)
+.theme_fg_rssi_bar_s9p			= "RSSI bar S9+", // Maxlen: 16 (+colour rect)
+.theme_fg_channel_name			= "Channel name", // MaxLen: 16 (+ colour rect)
+.theme_fg_channel_contact		= "Contact", // MaxLen: 16 (+ colour rect)
+.theme_fg_channel_contact_info		= "Contact info", // MaxLen: 16 (+ colour rect)
+.theme_fg_zone_name			= "Zone name", // MaxLen: 16 (+ colour rect)
+.theme_fg_rx_freq			= "RX freq", // MaxLen: 16 (+ colour rect)
+.theme_fg_tx_freq			= "TX freq", // MaxLen: 16 (+ colour rect)
+.theme_fg_css_sql_values		= "CSS/SQL values", // MaxLen: 16 (+ colour rect)
+.theme_fg_tx_counter			= "TX counter", // MaxLen: 16 (+ colour rect)
+.theme_fg_polar_drawing			= "Polar", // MaxLen: 16 (+ colour rect)
+.theme_fg_satellite_colour		= "Sat. spot", // MaxLen: 16 (+ colour rect)
+.theme_fg_gps_number			= "GPS number", // MaxLen: 16 (+ colour rect)
+.theme_fg_gps_colour			= "GPS spot", // MaxLen: 16 (+ colour rect)
+.theme_fg_bd_colour			= "BeiDou spot", // MaxLen: 16 (+ colour rect)
+.theme_colour_picker_red		= "Red", // MaxLen 16 (with ':' + 3 digits value)
+.theme_colour_picker_green		= "Green", // MaxLen 16 (with ':' + 3 digits value)
+.theme_colour_picker_blue		= "Blue", // MaxLen 16 (with ':' + 3 digits value)
+.volume					= "Volume", // MaxLen: 8
+.distance_sort				= "Dist sort", // MaxLen 16 (with ':' + .on or .off)
+.show_distance				= "Show dist", // MaxLen 16 (with ':' + .on or .off)
+.aprs_options				= "APRS options", // MaxLen 16
+.aprs_smart				= "Smart", // MaxLen 16 (with ':' + .mode)
+.aprs_channel				= "Channel", // MaxLen 16 (with ':' + .location)
+.aprs_decay				= "Decay", // MaxLen 16 (with ':' + .on or .off)
+.aprs_compress				= "Compress", // MaxLen 16 (with ':' + .on or .off)
+.aprs_interval				= "Interval", // MaxLen 16 (with ':' + 0.2..60 + 'min')
+.aprs_message_interval			= "Msg Interval", // MaxLen 16 (with ':' + 3..30)
+.aprs_slow_rate				= "Slow Rate", // MaxLen 16 (with ':' + 1..100 + 'min')
+.aprs_fast_rate				= "Fast Rate", // MaxLen 16 (with ':' + 10..180 + 's')
+.aprs_low_speed				= "Low Speed", // MaxLen 16 (with ':' + 2..30 + 'km/h')
+.aprs_high_speed			= "Hi Speed", // MaxLen 16 (with ':' + 2..90 + 'km/h')
+.aprs_turn_angle			= "T. Angle", // MaxLen 16 (with ':' + 5..90 + '<degree>')
+.aprs_turn_slope			= "T. Slope", // MaxLen 16 (with ':' + 1..255 + '<degree>/v')
+.aprs_turn_time				= "T. Time", // MaxLen 16 (with ':' + 5..180 + 's')
+.auto_lock				= "Auto lock", // MaxLen 16 (with ':' + .off or 0.5..15 (.5 step) + 'min')
 };
 /********************************************************************
  *
