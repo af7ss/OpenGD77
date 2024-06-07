@@ -1,11 +1,11 @@
 @echo OFF
 
-if exist firmware\linkerdata (
-	if exist firmware\tools\codec_cleaner.exe (
-		cd firmware\linkerdata && ..\tools\codec_cleaner.exe -C
-		cd ..\..
+if exist MDUV380_firmware\application\source\linkerdata (
+	if exist MDUV380_firmware\tools\codec_cleaner.exe (
+		cd MDUV380_firmware\application\source\linkerdata && ..\..\..\tools\codec_cleaner.exe -C
+		cd ..\..\..\..
 	) else (
-		@echo Error: The required tools are not installed in firmware/tools, the process cannot be completed.
+		@echo Error: The required tools are not installed in MDUV380_firmware/tools, the process cannot be completed.
 		exit /b 1
 	)
 ) else (
